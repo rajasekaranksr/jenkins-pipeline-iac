@@ -1,9 +1,9 @@
 pipeline {
 agent any
-cleanWs()
  stages { 
    stage ('Checkout Repo') { 
      steps { 
+       cleanWs()
        sh  'git clone https://github.com/UnixArena/emr_test.git'
       }
       } 
@@ -20,6 +20,11 @@ stage ('TF installation') {
    terraform --version
    ''' 
     }
-   } 
+   post { 
+        always { 
+            cleanWs()
+        }
+       }
+    }
   }
 }
