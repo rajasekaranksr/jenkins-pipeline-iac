@@ -1,10 +1,10 @@
 stages { 
-stage ('Checkout Repo') { 
+   stage ('Checkout Repo') { 
     steps { 
        sh  'git clone https://github.com/UnixArena/emr_test.git'
-}
-} 
-stages ('TF installation') { 
+     }
+   } 
+stage ('TF installation') { 
   steps {
    sh '''
     #!/bin/bash
