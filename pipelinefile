@@ -33,6 +33,9 @@ stage ('TF installation') {
    #echo AWS_PROFILE=ansible >> ${WORKSPACE}/env.properties
    cd terraform-test/
    /usr/local/bin/terraform init
+   id
+   pwd
+   ls -lrt /home/jenkins/.aws/*
    ''' 
    }
    }
