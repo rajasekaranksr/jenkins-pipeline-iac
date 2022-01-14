@@ -45,10 +45,10 @@ stage ('TF installation') {
    /usr/local/bin/terraform --version
    ''' 
    }
-   }
-      post { 
+        post { 
         always { 
             cleanWs()
+         }
         }
        }
   }
