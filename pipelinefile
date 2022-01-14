@@ -15,8 +15,8 @@ stage ('TF installation') {
     set +x 
     sudo yum install -y jq
     cd /usr/local/src
-    sudo wget https://releases.hashicorp.com/terraform/0.12.25/terraform_0.12.25_linux_amd64.zip
-    sudo unzip -o terraform_0.12.25_linux_amd64.zip
+    sudo wget https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+    sudo unzip -o terraform_0.12.9_linux_amd64.zip
     sudo cp -rf terraform /usr/local/bin/
    /usr/local/bin/terraform --version
    ''' 
@@ -29,8 +29,8 @@ stage ('TF installation') {
    #sudo mkdir -p /home/jenkins/.aws
    #sudo echo Credential_source = Ec2InstanceMetadata  > /home/jenkins/.aws/config
    #sudo echo role_arn = arn:aws:iam::476227053747:role/gitansible >> /home/jenkins/.aws/config
-   #export AWS_PROFILE=ansible
-   #echo AWS_PROFILE=ansible >> ${WORKSPACE}/env.properties
+   export AWS_PROFILE=ansible
+   echo AWS_PROFILE=ansible >> ${WORKSPACE}/env.properties
    cd terraform-test/
    /usr/local/bin/terraform init
    id
