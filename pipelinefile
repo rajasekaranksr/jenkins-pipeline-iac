@@ -1,9 +1,10 @@
-stages { 
+pipeline {
+ stages { 
    stage ('Checkout Repo') { 
-    steps { 
+     steps { 
        sh  'git clone https://github.com/UnixArena/emr_test.git'
-     }
-   } 
+      }
+      } 
 stage ('TF installation') { 
   steps {
    sh '''
@@ -18,4 +19,5 @@ stage ('TF installation') {
    ''' 
     }
    } 
+  }
 }
