@@ -29,8 +29,8 @@ stage ('TF installation') {
    #sudo mkdir -p /home/jenkins/.aws
    #sudo echo Credential_source = Ec2InstanceMetadata  > /home/jenkins/.aws/config
    #sudo echo role_arn = arn:aws:iam::476227053747:role/gitansible >> /home/jenkins/.aws/config
-   export AWS_PROFILE=ansible
-   echo AWS_PROFILE=ansible >> ${WORKSPACE}/env.properties
+   #export AWS_PROFILE=ansible
+   #echo AWS_PROFILE=ansible >> ${WORKSPACE}/env.properties
    cd terraform-test/
    /usr/local/bin/terraform init
    ''' 
