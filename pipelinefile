@@ -7,6 +7,7 @@ agent any
        sh  'git clone https://github.com/UnixArena/emr_test.git'
       }
       } 
+
 stage ('TF installation') { 
   steps {
    sh '''
@@ -20,11 +21,35 @@ stage ('TF installation') {
    /usr/local/bin/terraform --version
    ''' 
     }
-   post { 
+    }
+    
+  stage ('TF initialize') { 
+  steps {
+   sh '''
+   /usr/local/bin/terraform --version
+   ''' 
+   }
+   }
+   
+  stage ('TF plan') { 
+  steps {
+   sh '''
+   /usr/local/bin/terraform --version
+   ''' 
+   }
+   }
+   
+ stage ('TF apply') { 
+  steps {
+   sh '''
+   /usr/local/bin/terraform --version
+   ''' 
+   }
+   }
+      post { 
         always { 
             cleanWs()
         }
        }
-    }
   }
 }
