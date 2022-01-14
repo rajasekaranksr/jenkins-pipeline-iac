@@ -14,8 +14,8 @@ stage ('TF installation') {
     set +x 
     sudo yum install -y jq
     cd /usr/local/src
-    sudo wget https://releases.hasicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
-    sudo unzip -o terraform_0.12.9_linux_amd64.zip
+    sudo wget https://releases.hashicorp.com/terraform/0.12.25/terraform_0.12.25_linux_amd64.zip
+    sudo unzip -o terraform_0.12.25_linux_amd64.zip
     sudo cp -rf terraform /usr/local/bin/
    terraform --version
    ''' 
