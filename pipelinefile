@@ -1,8 +1,6 @@
-stage { 
-   stage ('Checkout-infra-code') { 
-     steps { 
+stage ('Checkout Repo') { 
+    steps { 
        sh  'git clone https://github.com/UnixArena/emr_test.git'
-}
 }
 
 stage ('TF installation') { 
@@ -17,6 +15,6 @@ stage ('TF installation') {
     sudo cp -rf terraform /usr/local/bin/
    terraform --version
    ''' 
-}
-} 
+    }
+   } 
 }
