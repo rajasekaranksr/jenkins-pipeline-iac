@@ -8,7 +8,7 @@ agent any
       }
       } 
 
-stage ('TF installation') { 
+stage ('Terraform installation') { 
   steps {
    sh '''
     #!/bin/bash
@@ -23,7 +23,7 @@ stage ('TF installation') {
     }
     }
     
-  stage ('TF initialize') { 
+  stage ('Terraform init') { 
   steps {
    sh '''
    #sudo mkdir -p /home/jenkins/.aws
@@ -40,7 +40,7 @@ stage ('TF installation') {
    }
    }
    
-  stage ('TF plan') { 
+  stage ('Terraform plan') { 
   steps {
    sh '''
    cd terraform-test/
@@ -49,7 +49,7 @@ stage ('TF installation') {
    }
    }
    
- stage ('TF apply') { 
+ stage ('Terraform apply') { 
   steps {
    sh '''
    cd terraform-test/
