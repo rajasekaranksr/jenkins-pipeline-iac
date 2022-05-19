@@ -8,17 +8,10 @@ agent any
       }
       } 
 
-stage ('Terraform installation') { 
+stage ('Terraform version') { 
   steps {
    sh '''
-    #!/bin/bash
-    set +x 
-    sudo yum install -y jq
-    cd /usr/local/src
-    sudo wget https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
-    sudo unzip -o terraform_0.12.9_linux_amd64.zip
-    sudo cp -rf terraform /usr/local/bin/
-   /usr/local/bin/terraform --version
+    terraform --version
    ''' 
     }
     }
@@ -27,7 +20,7 @@ stage ('Terraform installation') {
   steps {
    sh '''
    cd terraform-test/
-   /usr/local/bin/terraform init
+   terraform init
    ''' 
    }
    }
@@ -36,7 +29,7 @@ stage ('Terraform installation') {
   steps {
    sh '''
    cd terraform-test/
-   /usr/local/bin/terraform plan
+   terraform plan
    ''' 
    }
    }
@@ -45,7 +38,7 @@ stage ('Terraform installation') {
   steps {
    sh '''
    cd terraform-test/
-   /usr/local/bin/terraform apply --auto-approve
+   terraform apply --auto-approve
    ''' 
    }
         post { 
