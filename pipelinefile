@@ -29,7 +29,8 @@ stage ('Terraform version') {
   steps {
    sh '''
    cd terraform-test/
-   terraform plan
+   terraform plan -out=tfplan.out
+   terraform show -json tfplan.out
    ''' 
    }
    }
