@@ -8,49 +8,30 @@ options { ansiColor('xterm') }
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/UnixArena/terraform-test.git'
+       sh  'git clone https://github.com/UnixArena/ansible_playbooks.git'
       }
       } 
 
-stage ('Terraform version') { 
+stage ('ansible version') { 
   steps {
    sh '''
-    terraform --version
+    ansible --version
    ''' 
     }
     }
     
-  stage ('Terraform init') { 
+  stage ('trigger the playbook') { 
   steps {
    sh '''
-   cd terraform-test/
-   terraform init
+   ansible-playbook validate_backup_files_md5sum.yaml 
    ''' 
    }
    }
    
-  stage ('Terraform plan') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform plan -out=tfplan.out
-   terraform show -json tfplan.out
-   ''' 
-   }
-   }
-   
- stage ('Terraform apply') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform apply --auto-approve
-   ''' 
-   }
         post { 
         always { 
             cleanWs()
          }
         }
-       }
   }
 }
