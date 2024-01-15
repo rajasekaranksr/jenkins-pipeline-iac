@@ -8,7 +8,7 @@ options { ansiColor('xterm') }
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/UnixArena/ansible_playbooks.git'
+       sh  'git clone https://github.com/rajasekaranksr/ansible_playbooks.git'
       }
       } 
 
