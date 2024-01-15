@@ -8,7 +8,7 @@ options { ansiColor('xterm') }
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/UnixArena/terraform-test.git'
+       sh  'git clone https://github.com/rajasekaranksr/terraform-test.git'
       }
       } 
 
@@ -39,18 +39,18 @@ stage ('Terraform version') {
    }
    }
    
- stage ('Terraform apply') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform apply --auto-approve
-   ''' 
-   }
-        post { 
-        always { 
-            cleanWs()
-         }
-        }
-       }
+  stage ('Terraform apply') { 
+   steps {
+    sh '''
+    cd terraform-test/
+    terraform apply --auto-approve
+    ''' 
+    }
+    post { 
+      always { 
+           cleanWs()
+      }
+    }
   }
+ }
 }
